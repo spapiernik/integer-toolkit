@@ -3,11 +3,13 @@
 #include <assert.h>
 #include <stdarg.h>
 
+#include "integer_toolkit.h"
+
 // Integer Properties and Validation Functions
 
 unsigned int length(int number) {
     if (number == 0) return 1;
-    return (unsigned int) floor(log10(fabs(number))) + 1;
+    return (unsigned int) floor(log10(abs(number))) + 1;
 }
 
 int is_empty(int number) {
@@ -273,7 +275,7 @@ int min_digit(int number) {
 
 int reduce(int number, int(*func)(int, int), int initial) {
     while (!is_empty(number)) {
-        int number_length = length(number);
+        unsigned int number_length = length(number);
         int popped_value = pop_front(&number);
         initial = func(initial, popped_value);
         if (length(number) < number_length - 1) {
@@ -314,7 +316,7 @@ int number_from_to(int number, int from, int to) {
     assert(from <= to);
 
     (void) pop_back_n(&number, length(number) - to);
-    return back_n(number, (int) fabs(to - from));
+    return back_n(number, (int) abs(to - from));
 }
 
 // Sorting Functions
