@@ -3,8 +3,6 @@
 #include <assert.h>
 #include <stdarg.h>
 
-#include <stdio.h>
-
 #include "integer_toolkit.h"
 
 // Integer Properties and Validation Functions
@@ -124,23 +122,38 @@ int intk_with_zeros(int number, int quantity) {
 }
 
 void intk_set_digit(int *number, int index, int digit_or_number) {
-    assert(index_ok(*number, index));
-    int number_length = length(*number);
-    int bn = back_n(*number, fdim(length(*number), index + 1));
-    int fn = front_n(*number, index);
-    if (is_empty(bn)) {
+    assert(intk_index_ok(*number, index));
+    int number_length = intk_length(*number);
+    int bn = intk_back_n(*number, fdim(intk_length(*number), index + 1));
+    int fn = intk_front_n(*number, index);
+
+    int bn_expected_length = fdim(intk_length(*number), index + 1);
+    int bn_length = intk_length(bn);
+
+    if (index == 0) {
+        fn = -1;
+    }
+    if (index == number_length - 1) {
         bn = -1;
     }
-    *number = concat(3, fn, digit_or_number, bn);
-    *number = with_zeros(*number, (int) fdim(number_length, length(*number)));
+    *number = intk_concat(3, fn, intk_with_zeros(digit_or_number, (int) fdim(bn_expected_length, bn_length)), bn);
 }
 
 void intk_swap(int *number, int i, int j) {
     assert(intk_index_ok(*number, i));
     assert(intk_index_ok(*number, j));
 
-    int tmp_i = intk_at(*number, i);
+    if (i == j) {
+        return;
+    }
 
+    if (i == 0) {
+        int z = i;
+        i = j;
+        j = z;
+    }
+    
+    int tmp_i = intk_at(*number, i);
     intk_set_digit(number, i, intk_at(*number, j));
     intk_set_digit(number, j, tmp_i);
 }
