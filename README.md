@@ -2,6 +2,22 @@
 
 Integer Toolkit is a C library providing a comprehensive set of functions for manipulating and performing operations on integers. Whether you need to inspect, manipulate, search, or sort integers, this toolkit has you covered.
 
+## Usage
+
+To use the Integer Toolkit library in your C project, simply include the `integer_toolkit.h` header file and link against the corresponding `integer_toolkit.c` source file. Then, you can call any of the provided functions as needed to perform integer manipulation and operations.
+
+```c
+#include "integer_toolkit.h"
+#include <stdio.h>
+
+int main() {
+    int number = 12345;
+    printf("Number of digits: %u\n", intk_length(number));
+    // Other function calls...
+    return 0;
+}
+```
+
 ## Overview
 
 The library is organized into several categories of functions:
@@ -109,19 +125,3 @@ These functions allow you to check the divisibility of integers by specific numb
 - `divisible_by_3`: Check if an integer is divisible by 3.
 - `divisible_by_4`: Check if an integer is divisible by 4.
 - `divisible_by_5`: Check if an integer is divisible by 5.
-
-## Usage
-
-To use the Integer Toolkit library in your C project, simply include the `integer_toolkit.h` header file and link against the corresponding `integer_toolkit.c` source file. Then, you can call any of the provided functions as needed to perform integer manipulation and operations.
-
-```c
-#include "integer_toolkit.h"
-#include <stdio.h>
-
-int main() {
-    int number = 12345;
-    printf("Number of digits: %u\n", length(number));
-    // Other function calls...
-    return 0;
-}
-```
