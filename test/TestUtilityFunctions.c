@@ -20,79 +20,67 @@ void test_with_zeros() {
 void test_set_digit() {
   int number;
 
-  // number = 990;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(90, number);
-  // number = 990;
-  // intk_set_digit(&number, 1, 0);
-  // TEST_ASSERT_EQUAL(900, number);
+  number = 990;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(90, number);
+  number = 990;
+  intk_set_digit(&number, 1, 0);
+  TEST_ASSERT_EQUAL(900, number);
 
-  // number = 9;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(0, number);
-  // number = 90;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(0, number);
-  // number = 900;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(0, number);
-  // number = 9000;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(0, number);
-  // number = 90000;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(0, number);
-  // number = 900000;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(0, number);
+  number = 9;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(0, number);
+  number = 90;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(0, number);
+  number = 900;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(0, number);
+  number = 9000;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(0, number);
+  number = 90000;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(0, number);
+  number = 900000;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(0, number);
 
-  // number = 19;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(9, number);
-  // number = 10;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(9, number);
-  // number = 1009;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(9, number);
-  // number = 10009;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(9, number);
-  // number = 100009;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(9, number);
-  // number = 1000009;
-  // intk_set_digit(&number, 0, 0);
-  // TEST_ASSERT_EQUAL(9, number);
+  number = 19;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(9, number);
+  number = 19;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(9, number);
+  number = 1009;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(9, number);
+  number = 10009;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(9, number);
+  number = 100009;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(9, number);
+  number = 1000009;
+  intk_set_digit(&number, 0, 0);
+  TEST_ASSERT_EQUAL(9, number);
 
-  // number = 200000;
-  // intk_set_digit(&number, 0, 1);
-  // // printf("\nThe number is: %i\n", number);
-  // intk_set_digit(&number, 1, 2);
-  // // printf("\nThe number is: %i\n", number);
-  // intk_set_digit(&number, 2, 3);
-  // // printf("\nThe number is: %i\n", number);
-  // intk_set_digit(&number, 3, 4);
-  // // printf("\nThe number is: %i\n", number);
-  // intk_set_digit(&number, 4, 5);
-  // // printf("\nThe number is: %i\n", number);
-  // intk_set_digit(&number, 5, 6);
-  // // printf("\nThe number is: %i\n", number);
-  // // TEST_ASSERT_EQUAL(123456, number);
+  number = 900000;
+  intk_set_digit(&number, 0, 1);
+  TEST_ASSERT_EQUAL(100000, number);
+  intk_set_digit(&number, 1, 2);
+  TEST_ASSERT_EQUAL(120000, number);
+  intk_set_digit(&number, 2, 3);
+  TEST_ASSERT_EQUAL(123000, number);
+  intk_set_digit(&number, 3, 4);
+  TEST_ASSERT_EQUAL(123400, number);
+  intk_set_digit(&number, 4, 5);
+  TEST_ASSERT_EQUAL(123450, number);
+  intk_set_digit(&number, 5, 6);
+  TEST_ASSERT_EQUAL(123456, number);
 }
 
 void test_swap() {
-  // int number;
-
-  // number = 13;
-  // intk_swap(&number, 0, 1);
-  // TEST_ASSERT_EQUAL(31, number);
-  // number = 100;
-  // intk_swap(&number, 0, 1);
-  // TEST_ASSERT_EQUAL(10, number);
-  // number = 102;
-  // intk_swap(&number, 0, 2);
-  // TEST_ASSERT_EQUAL(201, number);
 }
 
 void test_clamp() {
