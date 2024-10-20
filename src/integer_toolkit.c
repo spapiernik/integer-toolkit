@@ -129,7 +129,8 @@ void intk_set_digit(int *number, int index, int digit_or_number) {
     int bn = intk_back_n(*number, fdim(intk_length(*number), index + 1));
     int fn = intk_front_n(*number, index);
 
-    int zeros = 0;
+    int bn_expected_length = fdim(intk_length(*number), index + 1);
+    int bn_length = intk_length(bn);
 
     if (index == 0) {
         fn = -1;
@@ -137,10 +138,7 @@ void intk_set_digit(int *number, int index, int digit_or_number) {
     if (index == number_length - 1) {
         bn = -1;
     }
-    *number = intk_concat(3, fn, digit_or_number, bn);
-
-
-    *number = intk_with_zeros(*number, (int) fdim(number_length, intk_length(*number)));
+    *number = intk_concat(3, fn, intk_with_zeros(digit_or_number, (int) fdim(bn_expected_length, bn_length)), bn);
 }
 
 void intk_swap(int *number, int i, int j) {
