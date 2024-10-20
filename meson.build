@@ -1,7 +1,7 @@
 project(
   'integer-toolkit',
   'c',
-  version: '0.1.1',
+  version: '1.0.0',
   default_options: ['c_std=c11', 'warning_level=3'],
   license: 'MIT',
   license_files: 'LICENSE'
