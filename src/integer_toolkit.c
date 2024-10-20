@@ -3,8 +3,6 @@
 #include <assert.h>
 #include <stdarg.h>
 
-#include <stdio.h>
-
 #include "integer_toolkit.h"
 
 // Integer Properties and Validation Functions
@@ -145,8 +143,17 @@ void intk_swap(int *number, int i, int j) {
     assert(intk_index_ok(*number, i));
     assert(intk_index_ok(*number, j));
 
-    int tmp_i = intk_at(*number, i);
+    if (i == j) {
+        return;
+    }
 
+    if (i == 0) {
+        int z = i;
+        i = j;
+        j = z;
+    }
+    
+    int tmp_i = intk_at(*number, i);
     intk_set_digit(number, i, intk_at(*number, j));
     intk_set_digit(number, j, tmp_i);
 }
