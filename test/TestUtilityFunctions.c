@@ -81,6 +81,20 @@ void test_set_digit() {
 }
 
 void test_swap() {
+  int number;
+
+  number = 13;
+  intk_swap(&number, 0, 1);
+  TEST_ASSERT_EQUAL(31, number);
+  number = 100;
+  intk_swap(&number, 0, 1);
+  TEST_ASSERT_EQUAL(10, number);
+  number = 102;
+  intk_swap(&number, 0, 2);
+  TEST_ASSERT_EQUAL(201, number);
+  number = 100;
+  intk_swap(&number, 0, 2);
+  TEST_ASSERT_EQUAL(1, number);
 }
 
 void test_clamp() {
