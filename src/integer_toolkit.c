@@ -362,6 +362,22 @@ void intk_bubble_sort(int *number) {
     }
 }
 
+void intk_selection_sort(int *number) {
+    intk_remove_all(number, 0);
+
+    int number_length = intk_length(*number);
+    for (int i = 0; i < number_length - 1; ++i) {
+        int min_idx = i;
+        for (int j = i + 1; j < number_length; ++j) {
+            if (intk_at(*number, j) < intk_at(*number, min_idx)) {
+                min_idx = j;
+            }
+        }
+
+        intk_swap(number, i, min_idx);
+    }
+}
+
 // Divisibility Functions
 
 int intk_divisible_by_2(int number) {
