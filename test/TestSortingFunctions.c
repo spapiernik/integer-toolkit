@@ -11,3 +11,14 @@ void test_bubble_sort() {
   intk_bubble_sort(&number);
   TEST_ASSERT_EQUAL(11, number);
 }
+
+void test_selection_sort() {
+  int number;
+
+  number = 15479;
+  intk_selection_sort(&number);
+  TEST_ASSERT_EQUAL(14579, number);
+  number = 1001;
+  intk_selection_sort(&number);
+  TEST_ASSERT_EQUAL(11, number);
+}
