@@ -2,6 +2,7 @@
 #include <math.h>
 #include <assert.h>
 #include <stdarg.h>
+#include <stdbool.h>
 
 #include "integer_toolkit.h"
 
@@ -352,12 +353,19 @@ int intk_number_from_to(int number, int from, int to) {
 void intk_bubble_sort(int *number) {
     intk_remove_all(number, 0);
 
-    int iterations = intk_length(*number);
-    for (int i = 0; i < iterations - 1; ++i) {
-        for (int j = 0; j < iterations - 1; ++j) {
+    int number_length = intk_length(*number);
+    bool swaped;
+    for (int i = 0; i < number_length - 1; ++i) {
+        swaped = false;
+        for (int j = 0; j < number_length - i - 1; ++j) {
             if (intk_at(*number, j) > intk_at(*number, j + 1)) {
                 intk_swap(number, j, j + 1);
+                swaped = true;
             }
+        }
+
+        if (!swaped) {
+            break;
         }
     }
 }
