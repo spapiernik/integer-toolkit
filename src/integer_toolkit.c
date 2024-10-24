@@ -378,6 +378,23 @@ void intk_selection_sort(int *number) {
     }
 }
 
+void intk_insertion_sort(int *number) {
+    intk_remove_all(number, 0);
+    
+    int number_length = intk_length(*number);
+    for (int i = 1; i < number_length; ++i) {
+        int value = intk_at(*number, i);
+        int j = i - 1;
+
+        while (j >= 0 && intk_at(*number, j) > value) {
+            intk_set_digit(number, j + 1, intk_at(*number, j));
+            j -= 1;
+        }
+
+        intk_set_digit(number, j + 1, value);
+    }
+}
+
 // Divisibility Functions
 
 int intk_divisible_by_2(int number) {
