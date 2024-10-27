@@ -403,6 +403,67 @@ void intk_insertion_sort(int *number) {
     }
 }
 
+void intk_merge_sort(int *number, int l, int r) {
+    intk_remove_all(number, 0);
+    
+    if (r > intk_length(*number)) {
+        r = intk_length(*number) - 1;
+    }
+
+    if (l >= r) {
+        return;
+    }
+
+    int m = l + (int) floor((r - l) / 2);
+
+    intk_merge_sort(number, l, m);
+    intk_merge_sort(number, m + 1, r);
+
+    int p = l;
+    int q = m;
+
+    int n1 = q - p + 1;
+    int n2 = r - q;
+
+    int L = intk_with_zeros(1, n1);
+    int M = intk_with_zeros(1, n2);;
+
+    for (int i = 0; i < n1; i++) {
+        intk_set_digit(&L, i, intk_at(*number, p + i));
+    }
+    for (int j = 0; j < n2; j++) {
+        intk_set_digit(&M, j, intk_at(*number, q + 1 + j));
+    }
+
+    int i, j, k;
+    i = 0;
+    j = 0;
+    k = p;
+
+    while (i < n1 && j < n2) {
+        if (intk_at(L, i) <= intk_at(M, j)) {
+            intk_set_digit(number, k, intk_at(L, i));
+            ++i;
+        } else {
+            intk_set_digit(number, k, intk_at(M, j));
+            ++j;
+        }
+        ++k;
+    }
+
+    while (i < n1) {
+        intk_set_digit(number, k, intk_at(L, i));
+        ++i;
+        ++k;
+    }
+
+    while (j < n2) {
+        intk_set_digit(number, k, intk_at(M, j));
+        ++j;
+        ++k;
+    }
+}
+
 // Divisibility Functions
 
 int intk_divisible_by_2(int number) {
