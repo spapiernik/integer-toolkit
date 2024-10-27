@@ -61,6 +61,7 @@ int intk_number_from_to(int number, int from, int to); // Extract a sub-integer 
 void intk_bubble_sort(int *number); // Sort the digits of the given integer using bubble sort algorithm.
 void intk_selection_sort(int *number); // Sort the digits of the given integer using selection sort algorithm.
 void intk_insertion_sort(int *number); // Sort the digits of the given integer using insertion sort algorithm.
+void intk_merge_sort(int *number, int l, int r); // Sort the digits of the given integer using merge sort algorithm.
 
 // Divisibility Functions
 int intk_divisible_by_2(int number); // Check if the given integer is divisible by 2.
