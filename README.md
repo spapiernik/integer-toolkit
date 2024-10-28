@@ -117,6 +117,7 @@ These functions allow you to generate ranges of integers or extract sub-integers
 
 These functions allow you to sort the digits of integers:
 - `bubble_sort`: Sort the digits of an integer using the bubble sort algorithm.
+- `selection_sort`: Sort the digits of an integer using the selection sort algorithm.
 
 ### Divisibility Functions
 
