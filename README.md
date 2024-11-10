@@ -12,9 +12,11 @@ To use the Integer Toolkit library in your C project, simply include the `intege
 
 int main() {
     int number = 12345;
+
+    printf("Original number: %d\n", number);
     printf("Number of digits: %u\n", intk_length(number));
-    // Other function calls...
-    return 0;
+    printf("Is number zero? %s\n", intk_is_empty(number) ? "Yes" : "No");
+    printf("Is number in range (1000-20000)? %s\n", intk_in_range(number, 1000, 20000) ? "Yes" : "No");
 }
 ```
 
