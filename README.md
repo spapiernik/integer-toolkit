@@ -21,6 +21,10 @@ int main() {
     printf("First digit of %d: %d\n", number, intk_front(number));
     printf("Last digit of %d: %d\n", number, intk_back(number));
     printf("Digit at index 2 of %d: %d\n", number, intk_at(number, 2));
+
+    printf("Does %d contain the digit 3? %s\n", number, intk_contains(number, 3) ? "Yes" : "No");
+    printf("Does %d start with 12? %s\n", number, intk_startswith(number, 12) ? "Yes" : "No");
+    printf("Does %d end with 45? %s\n", number, intk_endswith(number, 45) ? "Yes" : "No");
 }
 ```
 
