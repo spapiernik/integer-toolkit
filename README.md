@@ -138,3 +138,7 @@ These functions allow you to check the divisibility of integers by specific numb
 - `intk_divisible_by_3`: Check if an integer is divisible by 3.
 - `intk_divisible_by_4`: Check if an integer is divisible by 4.
 - `intk_divisible_by_5`: Check if an integer is divisible by 5.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
