@@ -406,7 +406,7 @@ void intk_insertion_sort(int *number) {
 void intk_merge_sort(int *number, int l, int r) {
     intk_remove_all(number, 0);
     
-    if (r > intk_length(*number)) {
+    if (r > (int) intk_length(*number)) {
         r = intk_length(*number) - 1;
     }
 
