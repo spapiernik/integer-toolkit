@@ -1,24 +1,23 @@
 project(
   'integer-toolkit',
   'c',
-  version: '1.3.0',
-  default_options: ['c_std=c11', 'warning_level=3'],
+  version: '1.3.1',
+  default_options: ['default_library=static', 'c_std=c11', 'warning_level=3'],
   license: 'MIT',
   license_files: 'LICENSE'
 )
-
-unity_subproject = subproject('unity')
-unity_dependency = unity_subproject.get_variable('unity_dep')
-unity_gen_runner = unity_subproject.get_variable('gen_test_runner')
 
 integer_toolkit_incdir = include_directories('include')
 
 integer_toolkit_lib = library(
   'integer-toolkit',
   'src/integer_toolkit.c',
-  include_directories: integer_toolkit_incdir,
-  install: true
+  include_directories: integer_toolkit_incdir
 )
+
+unity_subproject = subproject('unity')
+unity_dependency = unity_subproject.get_variable('unity_dep')
+unity_gen_runner = unity_subproject.get_variable('gen_test_runner')
 
 test_cases = [
   ['TestDivisibilityFunctions.c', 'Test Divisibility Functions'],
