@@ -1,7 +1,7 @@
 project(
   'integer-toolkit',
   'c',
-  version: '1.3.2',
+  version: '1.3.3',
   default_options: ['default_library=static', 'c_std=c11', 'warning_level=3'],
   license: 'MIT',
   license_files: 'LICENSE'
@@ -12,6 +12,11 @@ integer_toolkit_incdir = include_directories('include')
 integer_toolkit_lib = library(
   'integer-toolkit',
   'src/integer_toolkit.c',
+  include_directories: integer_toolkit_incdir
+)
+
+integer_toolkit_dep = declare_dependency(
+  link_with: integer_toolkit_lib,
   include_directories: integer_toolkit_incdir
 )
 

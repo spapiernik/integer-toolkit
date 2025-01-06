@@ -1,0 +1,4 @@
+[wrap-git]
+url = https://github.com/Cxx-mlr/integer-toolkit.git
+revision = head
+depth = 1
