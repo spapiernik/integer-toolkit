@@ -16,8 +16,7 @@ integer_toolkit_incdir = include_directories('include')
 integer_toolkit_lib = library(
   'integer-toolkit',
   'src/integer_toolkit.c',
-  include_directories: integer_toolkit_incdir,
-  install: true
+  include_directories: integer_toolkit_incdir
 )
 
 test_cases = [
