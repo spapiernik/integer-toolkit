@@ -15,6 +15,11 @@ integer_toolkit_lib = library(
   include_directories: integer_toolkit_incdir
 )
 
+integer_toolkit_dep = declare_dependency(
+  link_with: integer_toolkit_lib,
+  include_directories: integer_toolkit_incdir
+)
+
 unity_subproject = subproject('unity')
 unity_dependency = unity_subproject.get_variable('unity_dep')
 unity_gen_runner = unity_subproject.get_variable('gen_test_runner')
