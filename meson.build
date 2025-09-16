@@ -8,17 +8,17 @@ project(
   meson_version: '>=1.3.0'
 )
 
-integer_toolkit_incdir = include_directories('include')
+intk_incdir = include_directories('include')
 
-integer_toolkit_lib = library(
+intk_lib = library(
   'integer-toolkit',
   'src/integer_toolkit.c',
-  include_directories: integer_toolkit_incdir
+  include_directories: intk_incdir
 )
 
-integer_toolkit_dep = declare_dependency(
-  link_with: integer_toolkit_lib,
-  include_directories: integer_toolkit_incdir
+intk_dep = declare_dependency(
+  link_with: intk_lib,
+  include_directories: intk_incdir
 )
 
 unity_subproject = subproject('unity')
@@ -54,8 +54,8 @@ foreach test_case : test_cases
       ),
       unity_gen_runner.process('test' / filename)
     ],
-    link_with: integer_toolkit_lib,
-    include_directories: [integer_toolkit_incdir],
+    link_with: intk_lib,
+    include_directories: [intk_incdir],
     dependencies: [unity_dependency]
   )
 
