@@ -26,38 +26,36 @@ unity_dependency = unity_subproject.get_variable('unity_dep')
 unity_gen_runner = unity_subproject.get_variable('gen_test_runner')
 
 test_cases = [
-  ['TestDivisibilityFunctions.c', 'Test Divisibility Functions'],
-  ['TestIntegerInspection.c', 'Test Integer Inspection Functions'],
-  ['TestIntegerManipulation.c', 'Test Integer Manipulation Functions'],
-  ['TestIntegerProperties.c', 'Test Integer Properties and Validation Functions'],
-  ['TestMinMaxFunctions.c', 'Test Min and Max Functions'],
-  ['TestOccurrenceCounting.c', 'Test Occurrence Counting Functions'],
-  ['TestRangeFunctions.c', 'Test Range Functions'],
-  ['TestReductionFunctions.c', 'Test Reduction Functions'],
-  ['TestRemoveFunctions.c', 'Test Remove Functions'],
-  ['TestSearchFunctions.c', 'Test Search Functions'],
-  ['TestSortingFunctions.c', 'Test Sorting Functions'],
-  ['TestStringLikeFunctions.c', 'Test String-Like Functions'],
-  ['TestUtilityFunctions.c', 'Test Utility Functions']
+  ['TestDivisibilityFunctions', 'Test Divisibility Functions'],
+  ['TestIntegerInspection', 'Test Integer Inspection Functions'],
+  ['TestIntegerManipulation', 'Test Integer Manipulation Functions'],
+  ['TestIntegerProperties', 'Test Integer Properties and Validation Functions'],
+  ['TestMinMaxFunctions', 'Test Min and Max Functions'],
+  ['TestOccurrenceCounting', 'Test Occurrence Counting Functions'],
+  ['TestRangeFunctions', 'Test Range Functions'],
+  ['TestReductionFunctions', 'Test Reduction Functions'],
+  ['TestRemoveFunctions', 'Test Remove Functions'],
+  ['TestSearchFunctions', 'Test Search Functions'],
+  ['TestSortingFunctions', 'Test Sorting Functions'],
+  ['TestStringLikeFunctions', 'Test String-Like Functions'],
+  ['TestUtilityFunctions', 'Test Utility Functions']
 ]
 
 foreach test_case : test_cases
-  filename = test_case[0]
+  testname = test_case[0]
+  filename = testname + '.c'
   description = test_case[1]
 
-  test_executable = executable(
-    'test_' + filename,
+  exe = executable(
+    testname,
     [
-      files(
-        'src' / 'integer_toolkit.c',
-        'test' / filename
-      ),
-      unity_gen_runner.process('test' / filename)
+      'tests' / filename,
+      unity_gen_runner.process('tests' / filename)
     ],
     link_with: intk_lib,
     include_directories: [intk_incdir],
     dependencies: [unity_dependency]
   )
 
-  test(description, test_executable)
+  test(testname, exe)
 endforeach
