@@ -4,7 +4,8 @@ project(
   version: '1.3.4',
   default_options: ['default_library=static', 'c_std=c11', 'warning_level=3'],
   license: 'MIT',
-  license_files: 'LICENSE'
+  license_files: ['LICENSE'],
+  meson_version: '>=1.3.0'
 )
 
 integer_toolkit_incdir = include_directories('include')
